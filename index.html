@@ -58,12 +58,17 @@
 </header>
 
 <div class="about">
+    <div class="bg"></div>
     <div class="grid">
         <div class="about__slider">
             <div class="about__tips">
                 <span class="title">Групповые занятия</span>
                 <span class="text">Занятия в зале групповых программ — это отличный вариант для тех, кто предпочитает заниматься в компании друзей и единомышленников.</span>
-                <div class="controls"></div>
+                <div class="controls">
+                    <div class="control control--prev"></div>
+                    <div class="control control--next"></div>
+                </div>
+                <div class="clear"></div>
             </div>
             <div class="about__content">
                 <div class="slider__item">
@@ -92,15 +97,55 @@
                 </div>
             </div>
         </div>
+        <div class="features">
+            <div class="main-title">Ощутите все преимущества работы<br/> с профессионалами</div>
+            <div class="main-text">Занятия в тренажерном зале проводят профессиональные тренеры. Это не просто дипломированные специалисты, но и обладатели различных титулов, полученных на соревнованиях по фитнесу. Многие наши инструкторы - чемпионы мира и Европы в различных видах спорта. Инструкторы постоянно повышают квалификацию, есть специалисты международной категории. Наши специалисты в процессе обучения в тренажерном зале помогут Вам добиться всех поставленных целей, основываясь на большом личном опыте.</div>
+            <div class="steps">
+                <div class="steps__item">
+                    <div class="image"><img src="img/icon-arm.png"></div>
+                    <div class="title">Тренажерный зал</div>
+                    <div class="text">Силовые программы для тренировки мышц рук, плеч, груди, верхней части спины и брюшного пресса</div>
+                </div>
+                <div class="steps__item">
+                    <div class="image"><img src="img/icon-swim.png"></div>
+                    <div class="title">Бассейн</div>
+                    <div class="text">Выбор из более чем 25 видов различных программ позволит подобрать занятие максимально подходящее Вашим целям</div>
+                </div>
+                <div class="steps__item">
+                    <div class="image"><img src="img/icon-cardio.png"></div>
+                    <div class="title">Кардио зал</div>
+                    <div class="text">Кардиотренировка - это тренинг сердечной мышцы, основанный на аэробных нагрузках таких как бег, ходьба, различные виды аэробики</div>
+                </div>
+                <div class="steps__item">
+                    <div class="image"><img src="img/icon-yoga.png"></div>
+                    <div class="title">Йога</div>
+                    <div class="text">Уникальные программы, направленные на улучшение физического состояния тела и обретение душевного равновесия и комфорта</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div class="subscribe">
+    <div class="grid">
+        <div class="form">
+            <div class="title">Бесплатные занятия тантрой и йогой</div>
+            <div class="text">Занятия включают в себя теоретическую и практическую часть. На каждом занятии выдается напечатанный теоретический материал по пройденным темам.</div>
+            <form>
+                <input type="input" placeholder="Ваше имя">
+                <input type="input" placeholder="Ваш телефон">
+                <button type="submit" class="button button--subscribe">
+                    <span class="image"></span>
+                    <span>Оформить запись</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/script.js"></script>
-<script type="text/javascript">
-    $(function() {
-        console.log('html');
-    })
-</script>
+
 
 </body>
 </html>
