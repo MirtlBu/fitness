@@ -54,20 +54,11 @@ var treners = [
 
 $(function() {
     var ACTIVE = '--active';
-    var NAVITEM = 'nav__item';
-    var NAVITEM_ACTIVE = NAVITEM + ACTIVE;
     var SLIDERITEM = 'slider__item';
     var SLIDERITEM_ACTIVE = SLIDERITEM + ACTIVE;
     var TABITEM = 'tabs__item';
     var TABITEM_ACTIVE = TABITEM + ACTIVE;
     var slider_counter = 1;
-
-    //action in header
-    $('header').on('click', '.' + NAVITEM, function(e) {
-        e.preventDefault();
-        $('header').find('.' + NAVITEM).removeClass(NAVITEM_ACTIVE);
-        $(this).addClass(NAVITEM_ACTIVE);
-    });
 
     //action in slider
     function writeText(index) {
@@ -158,6 +149,23 @@ $(document).ready(function() {
 });
 
 
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    $('.nav__item').removeClass('nav__item--active');
+    $(this).closest('.nav__item').addClass('nav__item--active');
+    // $('#about, #treners, #gallery, #prices, #contacts').removeClass('addpadding');
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 
 ymaps.ready(init);
 var myMap, myPlacemark;
