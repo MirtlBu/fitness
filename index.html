@@ -60,7 +60,7 @@
 </header>
 
 <div class="about">
-    <div class="bg"></div>
+    <div class="bg"><img src="img/bg-1.jpg"></div>
     <div class="grid">
         <div class="about__slider">
             <div class="about__tips">
@@ -150,43 +150,43 @@
         <div class="main-title">Наши тренеры</div>
         <div class="main-text">Занятия в тренажерном зале проводят профессиональные тренеры. Это не просто дипломированные специалисты, но и обладатели различных титулов, полученных на соревнованиях по фитнесу.</div>
         <ul class="tabs">
-            <li class="tabs__item tabs__item--active">
-                <div class="image"></div>
+            <li class="tabs__item tabs__item--active" data-index="0">
+                <div class="image"><img src="img/workout-1.jpg"></div>
                 <div class="text">
-                    <span class="name">Павлючук Михиал</span>
+                    <span class="name">Иван Петров</span>
                     <span class="specification">Тяжелая атлетика</span>
                 </div>
             </li>
-            <li class="tabs__item">
-                <div class="image"></div>
+            <li class="tabs__item" data-index="1">
+                <div class="image"><img src="img/workout-2.jpg"></div>
                 <div class="text">
-                    <span class="name">Петров Иван</span>
-                    <span class="specification">Тяжелая атлетика</span>
+                    <span class="name">Пётр Иванов</span>
+                    <span class="specification">Плавание</span>
                 </div>
             </li>
-            <li class="tabs__item">
-                <div class="image"></div>
+            <li class="tabs__item" data-index="2">
+                <div class="image"><img src="img/workout-3.jpg"></div>
                 <div class="text">
-                    <span class="name">Мария Иванова</span>
+                    <span class="name">Мария Сидорова</span>
                     <span class="specification">Йога</span>
                 </div>
             </li>
-            <li class="tabs__item">
-                <div class="image"></div>
+            <li class="tabs__item" data-index="3">
+                <div class="image"><img src="img/workout-4.jpg"></div>
                 <div class="text">
                     <span class="name">Кошечкин Васисуалий</span>
-                    <span class="specification">Плавание</span>
+                    <span class="specification">Тяжелая атлетика</span>
                 </div>
             </li>
         </ul>
         <div class="tabs-content">
-            <div class="image"></div>
+            <div class="image"><img src="img/workout-1.jpg"></div>
             <div class="text">
-                <span class="name">Павлючук Михиал</span>
-                    <span class="specification">Тяжелая атлетика</span>
+                <span class="name">Иван Петров</span>
+                <span class="specification">Тяжелая атлетика</span>
                 <span class="description">
-                    <p>Образование высшее, МГПУ Московский Государственный Педагогический Университет (Методист Адаптивной Физической Культуры).</p>
-                    <p>Творческие и спортивные достижения: 1 разряд по Дзю-до, КМС по джиу-джитсу, фитнес-специализация, укрепление мускулатуры, снижение веса, функциональный тренинг, стретч, Miha Bodytec, увеличение мышечной массы</p>
+                    <p>Корпоративный университет инструкторов тренажерного зала. КМС по конькобежному спорту. Лейтенант запаса ВМФ</p>
+                    <p>Индивидуальный подход ко всем ученикам, составление тренировочных программ и программ питания исходя из поставленных целей. Постоянная мотивация и контроль результатов на всем пути к достижению результатов.</p>
                 </span>
             </div>
         </div>
@@ -205,6 +205,12 @@
     <div class="container">
         <div class="frame-wrap">
             <!--render from js-->
+        </div>
+    </div>
+    <div class="popup__overlay">
+        <div class="popup">
+            <div class="popup__image"></div>
+            <div class="popup__close">×</div>
         </div>
     </div>
 </div>
@@ -299,11 +305,11 @@
             </li>
             <li class="contacts__item">
                 <span class="image"><img src="img/icon-phone-2.png"></span>
-                <span class="text">8(495)888-88-88</span>
+                <a href="tel:+84958888888" class="text">8(495)888-88-88</a>
             </li>
             <li class="contacts__item">
                 <span class="image"><img src="img/icon-mail.png"></span>
-                <span class="text" mailto="example@fitness.ru">example@fitness.ru</span>
+                <a href="mailto:example@fitness.ru" class="text">example@fitness.ru</a>
             </li>
             <li>
                 <button type="submit" class="button button--income">
