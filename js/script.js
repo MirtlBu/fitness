@@ -1,42 +1,70 @@
 var slider_content = [
     {
         title: 'Групповые занятия',
-        text: 'Занятия в зале групповых программ — это отличный вариант для тех, кто предпочитает заниматься в компании друзей и единомышленников.'
+        text: 'Занятия в зале групповых программ — это отличный вариант для тех, кто предпочитает заниматься в компании друзей и единомышленников.',
+        url: 'img/bg-1.jpg'
     },
     {
         title: 'Занятия с тренером',
-        text: 'Помогут вам достичь максимальных результатов за время, которое вы посвящаете занятиям фитнесом.'
+        text: 'Помогут вам достичь максимальных результатов за время, которое вы посвящаете занятиям фитнесом.',
+        url: 'img/bg-2.jpg'
     },
     {
         title: 'Аквааэробика',
-        text: 'Cпециальные тренировки в воде, которые помогают укреплять мышцы тела и поддерживать себя в форме.'
+        text: 'Cпециальные тренировки в воде, которые помогают укреплять мышцы тела и поддерживать себя в форме.',
+        url: 'img/bg-3.jpg'
     },
     {
         title: 'Йога',
-        text: 'Традиционные принципы йоги с элементами хореографии, воздушной акробатики, пилатеса и художественной гимнастики.'
+        text: 'Традиционные принципы йоги с элементами хореографии, воздушной акробатики, пилатеса и художественной гимнастики.',
+        url: 'img/bg-4.jpg'
+    }
+];
+
+var treners = [
+    {
+        name: 'Иван Петров',
+        specification: 'Тяжелая атлетика',
+        description: '<p>Корпоративный университет инструкторов тренажерного зала. КМС по конькобежному спорту. Лейтенант запаса ВМФ</p>'+
+        '<p>Индивидуальный подход ко всем ученикам, составление тренировочных программ и программ питания исходя из поставленных целей. Постоянная мотивация и контроль результатов на всем пути к достижению результатов.</p>',
+        url: 'img/workout-1.jpg'
+    },
+    {
+        name: 'Пётр Иванов',
+        specification: 'Плавание',
+        description: '<p>Призер чемпионатов СПБ. КМС по плаванию. Школа Fitness House</p>'+
+        '<p>Виды обучения плаванию: Совершенствование техник плавания. Персональные тренировки взрослых и детей (дети от 5 лет). Совершенствование техник плавания. Подготовка к соревнованиям и выполнение спортивных разрядов по плаванию. Силовые тренировки в бассейне (развитие силы, выносливости, координации движений)</p>',
+        url: 'img/workout-2.jpg'
+    },
+    {
+        name: 'Мария Сидорова',
+        specification: 'Йога',
+        description: '<p>Мастер Спорта СССР по Художественной гимнастике. Член Молодежной Сборной команды СССР по Художественной гимнастике.</p>'+
+        '<p>Чемпионата города Ленинграда, бронзовый призер Советского Союза в Групповых упражнениях. Стаж работы в фитнесе 20 лет. Призентер городских Конвенций.</p>',
+        url: 'img/workout-3.jpg'
+    },
+    {
+        name: 'Кошечкин Васисуалий',
+        specification: 'Тяжелая атлетика',
+        description: '<p>Высшее образование НГУ им. П.Ф.Лесгафта, специалист по физической культуре и спорту, oпыт работы в фитнесе 6 лет. КМС по плаванию</p>' +
+        '<p>Призёр и победитель чемпионатов и кубков России по юношам в 2006-2008 году. Неоднократный призёр Кубков Мира и Европы по скоростному подводному плаванию в ластах</p>',
+        url: 'img/workout-4.jpg'
     }
 ];
 
 $(function() {
     var ACTIVE = '--active';
-    var NAVITEM = 'nav__item';
-    var NAVITEM_ACTIVE = NAVITEM + ACTIVE;
     var SLIDERITEM = 'slider__item';
     var SLIDERITEM_ACTIVE = SLIDERITEM + ACTIVE;
     var TABITEM = 'tabs__item';
     var TABITEM_ACTIVE = TABITEM + ACTIVE;
     var slider_counter = 1;
-    //action in header
-    $('header').on('click', '.' + NAVITEM, function(e) {
-        e.preventDefault();
-        $('header').find('.' + NAVITEM).removeClass(NAVITEM_ACTIVE);
-        $(this).addClass(NAVITEM_ACTIVE);
-    });
 
     //action in slider
     function writeText(index) {
         $('.about__tips').find('.title').text(slider_content[index].title);
         $('.about__tips').find('.text').text(slider_content[index].text);
+        $('.bg').find('img').attr('src', slider_content[index].url);
     }
 
     $('.about__slider').on('click', '.' + SLIDERITEM, function(e) {
@@ -66,10 +94,17 @@ $(function() {
 
     //action in treners
     $('.treners').on('click', '.' + TABITEM, function() {
+        var index = $(this).attr('data-index');
         $('.treners').find('.' + TABITEM).removeClass(TABITEM_ACTIVE);
         $(this).addClass(TABITEM_ACTIVE);
+        $('.tabs-content').find('img').attr('src', treners[index].url);
+        $('.tabs-content').find('.name').text(treners[index].name);
+        $('.tabs-content').find('.specification').text(treners[index].specification);
+        $('.tabs-content').find('.description').html(treners[index].description);
     });
 });
+
+
 
 function renderGalleryItem(a, b) {
     return $('<div/>', {'class': 'frame'})
@@ -81,10 +116,23 @@ $(function() {
     for (var i = 0; i < 16; i++) {
         var a = Math.floor(Math.random() * 10);
         var b = Math.floor(Math.random() * 10);
-        console.log(a, b);
         $('.gallery').find('.frame-wrap').append(renderGalleryItem(a, b));
     }
 });
+
+$('.gallery').on('click', '.image', function() {
+    var url = $(this).find('img').attr('src');
+    $('.popup__overlay').addClass('visibled');
+    $('body').addClass('forbiddenscroll');
+    $('.popup').find('.popup__image').html('<img src="' + url + '">');
+});
+
+$('.gallery').on('click', '.popup__close', function() {
+    $('.popup__overlay').removeClass('visibled');
+    $('body').removeClass('forbiddenscroll');
+});
+
+
 
 $(document).ready(function() {
 
@@ -101,9 +149,23 @@ $(document).ready(function() {
 });
 
 
-
-
-
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    $('.nav__item').removeClass('nav__item--active');
+    $(this).closest('.nav__item').addClass('nav__item--active');
+    // $('#about, #treners, #gallery, #prices, #contacts').removeClass('addpadding');
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 
 
 
