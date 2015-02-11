@@ -133,6 +133,32 @@ $('.gallery').on('click', '.popup__close', function() {
 });
 
 
+var tops = $.map('#about #treners #gallery #prices #contacts'.split(' '), function(id) {
+    return {
+        elem: id,
+        top: $(id).offset().top
+    };
+});
+
+
+$(window).scroll(function() {
+
+    var pos = $(window).scrollTop() + 110;
+    $.each(tops, function(i, top) {
+        if(pos < top.top) {
+
+        }
+    })
+
+    if(pos < tops[0].top) {
+        $('.nav__item')
+            .removeClass('nav__item--active')
+            .find('a[href = ' + tops[0].elem + ']')
+            .closest('.nav__item')
+            .addClass('nav__item--active');
+    }
+
+});
 
 $(document).ready(function() {
 
@@ -145,6 +171,8 @@ $(document).ready(function() {
         controlNav: false,
         move: 2,
         controlsContainer: '.gallery .controls',
+        prevText: " ",
+        nextText: " ",
     });
 });
 
@@ -185,5 +213,6 @@ function init(){
         });
     myMap.geoObjects.add(myPlacemark);
     myMap.controls.remove('typeSelector').remove('mapTools').remove('searchControl').remove('trafficControl');
+    myMap.behaviors.disable("scrollZoom");
 
 }
