@@ -67,6 +67,13 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
+.block {
+    width: 100%;
+    min-width: 1200px;
+    position: relative;
+    box-sizing: border-box;
+}
+
 .clear {
     content: " ";
     visibility: hidden;
@@ -76,7 +83,6 @@ input::-webkit-input-placeholder {
 }
 
 header {
-    width: 100%;
     height: 110px;
     position: fixed;
     z-index: 5;
@@ -217,7 +223,6 @@ header {
 }
 
 .about {
-    width: 100%;
     background: @color-blue-light;
     padding: 100px 0 275px 0;
 
@@ -492,7 +497,6 @@ header {
 }
 
 .subscribe {
-    width: 100%;
     height: 600px;
     background: url(../img/bg-sub.jpg);
     background-position: -200px 0;
@@ -1070,12 +1074,19 @@ footer {
     color: #c9c9c9;
     text-transform: uppercase;
     padding: 5px 0;
-    box-sizing: border-box;
     text-align: center;
 }
 
 .forbiddenscroll {
     overflow: hidden;
+}
+
+.flex-direction-nav a.flex-next:before, .flex-direction-nav a.flex-prev:before,{
+    content: ' '!important;
+}
+
+.flex-direction-nav a:before {
+    content: ' '!important;
 }
 
 
